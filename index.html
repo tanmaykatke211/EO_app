@@ -1,0 +1,75 @@
+<html>
+	<head>
+		<title>Even Odd App by Tanmay Katke</title>
+		<style>
+			*{font-size:50px;}
+			body{background-color:azure;}
+			h1{background-color:black; color:white; border-radius:40px; width:50%}
+			.btn{width:10%; margin:30px; color:white; background-color:black;}
+			.btn:hover{color:black; background-color:white;}
+		</style>
+	</head>
+	<body>
+	<center>
+		<h1>Even Odd App with multiple buttons</h1>
+		<form onsubmit="check()">
+			<input type="number" placeholder="Enter Integer" id="num"/>
+			<br/><br/>
+			<input type="submit" value="m1" class="btn"/>
+			<input type="submit" value="m2" class="btn"/>
+			<input type="submit" value="m3" class="btn"/>
+		</form>
+		<h2 id="msg"/>
+	</center>
+	<script>
+		function check()
+		{
+			event.preventDefault();
+			let num = document.getElementById("num");
+			let msg = document.getElementById("msg");
+			let action = document.activeElement.value;
+			
+			if (num === "")
+			{
+				alert("Please enter a number.");
+				msg.innerHTML = "";
+				num.focus();
+				return;
+			}
+
+			let n = parseInt(num.value);
+	
+			if (action === "m1")
+			{
+				n % 2 === 0? msg.innerHTML = "res 1 = Even" : msg.innerHTML = "res 1 = Odd"; 
+			}
+			else if (action === "m2")
+			{
+				if (n%2 === 0)
+				{
+					msg.innerHTML = "res 2 = Even";
+				}
+				else
+				{
+					msg.innerHTML = "res 2 = Odd";
+				}
+			}
+			else if (action === "m3")
+			{
+				switch(n%2)
+				{
+					case 0:
+						msg.innerHTML = "res 3 = Even";
+						break;
+					case 1:
+						msg.innerHTML = "res 3 = Odd";
+						break;
+					case -1:
+						msg.innerHTML = "res 3 = Odd";
+						break;
+				}
+			}
+		}
+	</script>
+	</body>
+</html>
